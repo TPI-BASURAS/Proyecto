@@ -23,7 +23,7 @@ class SignIn extends Component {
           </div>
           <img
             className="image_background_si"
-            src='https://raw.githubusercontent.com/TPI-BASURAS/Proyecto/feature/SignIn/src/assets/fondo.png?token=AH2T4PVADBTBL36CIO5UADS6YKXME' />
+            src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/fondo.png' />
         </div>
       );
     }

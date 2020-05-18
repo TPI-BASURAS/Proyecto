@@ -152,128 +152,131 @@ class SignInCard extends Component {
                     justify="center"
                     alignItems="center"
                 >
-                    <Grid item xs={8}>
+                    <Grid item xs={9}>
                         <img
                             className="image_background_si"
-                            src=' https://raw.githubusercontent.com/nsaavedraa/imgs/master/background.jpg' />
+                            src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/banner.png' />
                     </Grid>
-                    <Grid item xs={4}>
-                        <div className="paper">
-                            <div className="internal_paper_in">
+                    <Grid item xs={3}>
+                        <div className="paper-container">
+                            <div className="paper">
+                                <div className="internal_paper_in">
 
-                                <div className="title">
-                                    <h1>Inicio de sesion </h1>
-                                </div>
-                                <div className="error_msg" style={this.state.error ? {} : { display: 'none' }}>
-                                    <div className="help">
-                                        <IconContext.Provider value={{ size: "2.2em ", className: 'help_icon' }}>
-                                            <div>
-                                                <FaQuestionCircle onClick={this.handleDialogOpen} />
-                                            </div>
-                                        </IconContext.Provider>
+                                    <div className="title">
+                                        <h1>Inicio de sesion </h1>
                                     </div>
-                                    <span>Correo electrónico o contraseña incorrectos. Por favor inténtalo nuevamente</span>
-                                </div>
-
-                                <Dialog onClose={this.handleDialogClose} aria-labelledby="customized-dialog-title" open={this.state.dialogOpen} fullWidth={true}>
-                                    <DialogTitle className="dialog_title" id="customized-dialog-title" onClose={this.handleDialogClose}>
-                                        ¿Problemas con tu inicio de sesión?
-                  </DialogTitle>
-                                    <DialogContent dividers>
-                                        <div className="dialog_content">
-                                            <p>Recuerda escribir una dirección de correo válida (nombre@dominio.com) y ten cuidado con las mayúsculas al
-                                            momento de escribir tu contraseña.
-                          </p>
-                                            <p>
-                                                Si aún no tienes una cuenta, <a href="/SignUp" > Regístrate aquí </a>
-                                            </p>
+                                    <div className="error_msg" style={this.state.error ? {} : { display: 'none' }}>
+                                        <div className="help">
+                                            <IconContext.Provider value={{ size: "2.2em ", className: 'help_icon' }}>
+                                                <div>
+                                                    <FaQuestionCircle onClick={this.handleDialogOpen} />
+                                                </div>
+                                            </IconContext.Provider>
                                         </div>
-                                    </DialogContent>
-                                    <DialogActions>
-                                        <ThemeProvider theme={this.theme}>
-                                            <Button onClick={this.handleDialogClose}>
-                                                cerrar
+                                        <span>Correo electrónico o contraseña incorrectos. Por favor inténtalo nuevamente</span>
+                                    </div>
+
+                                    <Dialog onClose={this.handleDialogClose} aria-labelledby="customized-dialog-title" open={this.state.dialogOpen} fullWidth={true}>
+                                        <DialogTitle className="dialog_title" id="customized-dialog-title" onClose={this.handleDialogClose}>
+                                            ¿Problemas con tu inicio de sesión?
+                  </DialogTitle>
+                                        <DialogContent dividers>
+                                            <div className="dialog_content">
+                                                <p>Recuerda escribir una dirección de correo válida (nombre@dominio.com) y ten cuidado con las mayúsculas al
+                                                momento de escribir tu contraseña.
+                          </p>
+                                                <p>
+                                                    Si aún no tienes una cuenta, <a href="/SignUp" > Regístrate aquí </a>
+                                                </p>
+                                            </div>
+                                        </DialogContent>
+                                        <DialogActions>
+                                            <ThemeProvider theme={this.theme}>
+                                                <Button onClick={this.handleDialogClose}>
+                                                    cerrar
                       </Button>
-                                        </ThemeProvider>
-                                    </DialogActions>
-                                </Dialog>
+                                            </ThemeProvider>
+                                        </DialogActions>
+                                    </Dialog>
 
-                                <form className="form" noValidate>
+                                    <form className="form" noValidate>
 
-                                    < this.StyledTextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        fullWidth
-                                        id="email"
-                                        label="Correo electronico"
-                                        name="email"
-                                        autoComplete="email"
-                                        onChange={this.handleChange}
-                                    />
-
-                                    < this.StyledTextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        fullWidth
-                                        name="password"
-                                        label="Contraseña"
-                                        id="password"
-                                        autoComplete="current-password"
-                                        type={this.state.showPassword ? 'text' : 'password'}
-                                        //value={this.state.password}
-                                        onChange={this.handleChange}
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton
-
-                                                        aria-label="toggle password visibility"
-                                                        onClick={this.handleClickShowPassword}
-                                                        onMouseDown={this.handleMouseDownPassword}>
-                                                        {(this.state.showPassword) ? (<VisibilityOff />) : (<Visibility />)}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                    />
-
-                                    <ThemeProvider theme={this.theme}>
-                                        <FormControlLabel
-                                            control={<Checkbox value="remember" color="primary" />}
-                                            label="Recuerdame"
-                                        />
-                                    </ThemeProvider>
-                                    <div>
-                                        < this.StyledButton onClick={() => {
-
-
-                                        }}
-                                            /* href="/PrefAssistant" */
+                                        < this.StyledTextField
+                                            variant="outlined"
+                                            margin="normal"
                                             fullWidth
-                                            focusRipple
-                                            variant="contained"
-                                            size="medium"
-                                            text="bold"
-                                        > Inicia sesion </this.StyledButton>
-                                        <Link to={{
-                                            pathname: '/Home',
-                                            state: {
-                                                userData: this.state.userData
-                                            }
-                                        }}
-                                            ref={
-                                                Link => this.LinkElement = Link
-                                            }>
-                                        </Link>
-                                    </div>
+                                            id="email"
+                                            label="Correo electronico"
+                                            name="email"
+                                            autoComplete="email"
+                                            onChange={this.handleChange}
+                                        />
+
+                                        < this.StyledTextField
+                                            variant="outlined"
+                                            margin="normal"
+                                            fullWidth
+                                            name="password"
+                                            label="Contraseña"
+                                            id="password"
+                                            autoComplete="current-password"
+                                            type={this.state.showPassword ? 'text' : 'password'}
+                                            //value={this.state.password}
+                                            onChange={this.handleChange}
+                                            InputProps={{
+                                                endAdornment: (
+                                                    <InputAdornment position="end">
+                                                        <IconButton
+
+                                                            aria-label="toggle password visibility"
+                                                            onClick={this.handleClickShowPassword}
+                                                            onMouseDown={this.handleMouseDownPassword}>
+                                                            {(this.state.showPassword) ? (<VisibilityOff />) : (<Visibility />)}
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                ),
+                                            }}
+                                        />
+
+                                        <ThemeProvider theme={this.theme}>
+                                            <FormControlLabel
+                                                control={<Checkbox value="remember" color="primary" />}
+                                                label="Recuerdame"
+                                            />
+                                        </ThemeProvider>
+                                        <div>
+                                            < this.StyledButton onClick={() => {
 
 
-                                    <div className="login_link">
-                                        < a href="#"> ¿Olvidaste tu contraseña? </a>
-                                    </div>
+                                            }}
+                                                /* href="/PrefAssistant" */
+                                                fullWidth
+                                                focusRipple
+                                                variant="contained"
+                                                size="medium"
+                                                text="bold"
+                                            > Inicia sesion </this.StyledButton>
+                                            <Link to={{
+                                                pathname: '/Home',
+                                                state: {
+                                                    userData: this.state.userData
+                                                }
+                                            }}
+                                                ref={
+                                                    Link => this.LinkElement = Link
+                                                }>
+                                            </Link>
+                                        </div>
 
-                                </form>
+
+                                        <div className="login_link">
+                                            < a href="#"> ¿Olvidaste tu contraseña? </a>
+                                        </div>
+
+                                    </form>
+                                </div>
                             </div>
+
                         </div>
 
                         <Box mt={5}>

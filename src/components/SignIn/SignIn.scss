@@ -16,8 +16,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-right: 2vw;
-    padding-left: 2vw;
     padding-bottom: 2vh;  
     padding-top: 2vh;
     border-radius: 0.5vw;
@@ -27,6 +25,20 @@
     opacity: 90%;
   }
 
+
+  .sign_in .card .MuiContainer-root{
+      padding-left: 0;
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+  } 
+
+  .paper-container{
+    width: 100%;
+    height: 100%;
+    padding-right: 2em;
+    padding-left: 2em;
+  }
   .background_overlay_si{
     position: absolute;
     width: 100%;

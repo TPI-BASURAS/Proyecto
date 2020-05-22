@@ -38,7 +38,9 @@ class SignUpCard extends Component {
             showPassword: false,
             password: '',
             error: false,
-            dialogOpen: false
+            dialogOpen: false,
+            confirmPassword: '',
+            password: ''
         };
 
         this.gradient = 'linear-gradient(136deg, #055B5C 0%, #40989d 50%)';
@@ -157,214 +159,221 @@ class SignUpCard extends Component {
                     alignItems="center">
                     <Grid item xs={5}>
                         <div className="image-container">
-                        <img
-                            className="banner"
-                            src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/register.png' />
+                            <img
+                                className="banner"
+                                src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/register.png' />
                         </div>
                     </Grid>
                     <Grid item xs={7}>
                         <CssBaseline />
-                        <div className="paper">
-                            <div className="internal_paper">
-                                <div className="title">
-                                    <h1>Regístrate</h1>
-                                </div>
-                                <div className="error_msg" style={this.state.signUpError ? {} : { display: 'none' }}>
-                                    <div className="help">
-                                        <IconContext.Provider value={{ size: "2.2em ", className: 'help_icon' }}>
-                                            <div>
-                                                <FaQuestionCircle onClick={this.handleDialogOpen} />
-                                            </div>
-                                        </IconContext.Provider>
+                        <div className="paper-container">
+                            <div className="paper">
+                                <div className="internal_paper">
+                                    <div className="title">
+                                        <h1>Bienvenido a SyncTrash</h1>
                                     </div>
-                                    <span>{this.state.signUpErrorText}</span>
-                                </div>
+                                    <div className="error_msg" style={this.state.signUpError ? {} : { display: 'none' }}>
+                                        <div className="help">
+                                            <IconContext.Provider value={{ size: "2.2em ", className: 'help_icon' }}>
+                                                <div>
+                                                    <FaQuestionCircle onClick={this.handleDialogOpen} />
+                                                </div>
+                                            </IconContext.Provider>
+                                        </div>
+                                        <span>{this.state.signUpErrorText}</span>
+                                    </div>
 
-                                <Dialog onClose={this.handleDialogClose} aria-labelledby="customized-dialog-title" open={this.state.dialogOpen} fullWidth={true}>
-                                    <DialogTitle className="dialog_title" id="customized-dialog-title" onClose={this.handleDialogClose}>
-                                        ¿Problemas con tu registro?
+                                    <Dialog onClose={this.handleDialogClose} aria-labelledby="customized-dialog-title" open={this.state.dialogOpen} fullWidth={true}>
+                                        <DialogTitle className="dialog_title" id="customized-dialog-title" onClose={this.handleDialogClose}>
+                                            ¿Problemas con tu registro?
 					</DialogTitle>
-                                    <DialogContent dividers>
-                                        <div className="dialog_content">
-                                            <p>Es posible que ya hayas creado una cuenta anteriormente con la dirección de correo especificada,
+                                        <DialogContent dividers>
+                                            <div className="dialog_content">
+                                                <p>Es posible que ya hayas creado una cuenta anteriormente con la dirección de correo especificada,
 								en ese caso te invitamos a <a href="/SignIn" > Iniciar sesión </a>
-                                            </p>
-                                        </div>
-                                    </DialogContent>
-                                    <DialogActions>
-                                        <ThemeProvider theme={this.theme}>
-                                            <Button onClick={this.handleDialogClose}>
-                                                cerrar
+                                                </p>
+                                            </div>
+                                        </DialogContent>
+                                        <DialogActions>
+                                            <ThemeProvider theme={this.theme}>
+                                                <Button onClick={this.handleDialogClose}>
+                                                    cerrar
 						</Button>
-                                        </ThemeProvider>
-                                    </DialogActions>
-                                </Dialog>
+                                            </ThemeProvider>
+                                        </DialogActions>
+                                    </Dialog>
 
-                                <form className="form" noValidate>
+                                    <form className="form" noValidate>
 
-                                    < this.StyledTextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        fullWidth
-                                        id="email"
-                                        label="Correo electronico*"
-                                        name="email"
-                                        autoComplete="email"
-                                        onChange={this.handleChange}
-                                        error={this.state.emailError && this.state.email == ""}
-                                        helperText={this.state.emailError || this.state.email == "" ? this.state.emailErrorText : ""}
-                                    />
-
-                                    < this.StyledTextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        fullWidth
-                                        id="username"
-                                        label="Nombre de Usuario"
-                                        name="username"
-                                        autoComplete="username"
-                                        onChange={this.handleChange}
-                                        error={this.state.usernameError && this.state.username == ""}
-                                        helperText={this.state.usernameError && this.state.username == "" ? "Este campo es obligatorio" : ""}
-                                    />
-
-                                    < this.StyledTextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        fullWidth
-                                        name="password"
-                                        label="Contraseña*"
-                                        id="password"
-                                        autoComplete="current-password"
-                                        type={this.state.showPassword ? 'text' : 'password'}
-                                        value={this.state.password}
-                                        onChange={this.handleChange}
-                                        error={this.state.passwordError && this.state.password.length < 2}
-                                        helperText={this.state.passwordError && this.state.password.length < 2 ? "La contraseña debe tener mínimo 7 caracteres" : ""}
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton
-                                                        aria-label="toggle password visibility"
-                                                        onClick={this.handleClickShowPassword}
-                                                        onMouseDown={this.handleMouseDownPassword}>
-                                                        {(this.state.showPassword) ? (<VisibilityOff />) : (<Visibility />)}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                    />
-
-                                    < this.StyledTextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        fullWidth
-                                        name="confirmPassword"
-                                        label="Confirmar contraseña*"
-                                        id="confirmPassword"
-                                        autoComplete="confirm password"
-                                        type={this.state.showConfirmPassword ? 'text' : 'password'}
-                                        value={this.state.confirmPassword}
-                                        onChange={this.handleChange}
-                                        error={
-                                            this.state.confirmPassword != this.state.password
-                                        }
-                                        helperText={
-                                            this.state.confirmPassword != this.state.password ? "Las contraseñas deben coincidir" : ""
-                                        }
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton
-                                                        aria-label="toggle password visibility"
-                                                        onClick={this.handleClickShowConfirmPassword}
-                                                        onMouseDown={this.handleMouseDownConfirmPassword}>
-                                                        {(this.state.showConfirmPassword) ? (<VisibilityOff />) : (<Visibility />)}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                    />
-
-                                    <ThemeProvider theme={this.theme}>
-                                        <div className="columns_container">
-                                            <Grid container
-                                                spacing={2}
-                                                direction="row"
-                                                justify="center"
-                                                alignItems="center"
-                                                wrap="nowrap" >
-                                                < Grid item xs={7}>
-                                                    < this.StyledTextField
-                                                        variant="outlined"
-                                                        margin="normal"
-                                                        fullWidth
-                                                        id="city"
-                                                        label="Ciudad de Residencia"
-                                                        name="city"
-                                                        autoComplete="city"
-                                                        onChange={this.handleChange}
-                                                        error={this.state.cityError && this.state.city == ""}
-                                                        helperText={this.state.cityError && this.state.city == "" ? "Este campo es obligatorio" : ""}
-                                                    />
-                                                </Grid>
-                                                < Grid item xs={5}>
-                                                    <FormControl
-                                                        variant="outlined"
-                                                        fullWidth>
-                                                        <InputLabel htmlFor="outlined-age-simple">
-                                                            Género
-												</InputLabel>
-                                                        <Select
+                                        <ThemeProvider >
+                                            <div className="columns_container">
+                                                <Grid container
+                                                    spacing={1}
+                                                    direction="row"
+                                                    justify="center"
+                                                    alignItems="center"
+                                                >
+                                                    <Grid item xs={12}>
+                                                        < this.StyledTextField
+                                                            variant="outlined"
+                                                            margin="normal"
                                                             fullWidth
-                                                            value={this.state.gender}
-                                                            onChange={this.handleGenderChange}
-                                                            labelWidth={54}
-                                                            inputProps={{
-                                                                gender: 'age',
-                                                                id: 'outlined-age-simple',
+                                                            id="username"
+                                                            label="Nombre Completo"
+                                                            name="username"
+                                                            autoComplete="username"
+                                                            onChange={this.handleChange}
+                                                            error={this.state.usernameError && this.state.username == ""}
+                                                            helperText={this.state.usernameError && this.state.username == "" ? "Este campo es obligatorio" : ""}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        < this.StyledTextField
+                                                            variant="outlined"
+                                                            margin="normal"
+                                                            fullWidth
+                                                            id="email"
+                                                            label="Correo electronico*"
+                                                            name="email"
+                                                            autoComplete="email"
+                                                            onChange={this.handleChange}
+                                                            error={this.state.emailError && this.state.email == ""}
+                                                            helperText={this.state.emailError || this.state.email == "" ? this.state.emailErrorText : ""}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        < this.StyledTextField
+                                                            variant="outlined"
+                                                            margin="normal"
+                                                            fullWidth
+                                                            id="Celular"
+                                                            label="Telefono celular"
+                                                            name="Celular"
+                                                            autoComplete="Telefono"
+                                                            onChange={this.handleChange}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        < this.StyledTextField
+                                                            variant="outlined"
+                                                            margin="normal"
+                                                            fullWidth
+                                                            name="password"
+                                                            label="Contraseña*"
+                                                            id="password"
+                                                            autoComplete="current-password"
+                                                            type={this.state.showPassword ? 'text' : 'password'}
+                                                            value={this.state.password}
+                                                            onChange={this.handleChange}
+                                                            error={this.state.passwordError && this.state.password.length < 2}
+                                                            helperText={this.state.passwordError && this.state.password.length < 2 ? "La contraseña debe tener mínimo 7 caracteres" : ""}
+                                                            InputProps={{
+                                                                endAdornment: (
+                                                                    <InputAdornment position="end">
+                                                                        <IconButton
+                                                                            aria-label="toggle password visibility"
+                                                                            onClick={this.handleClickShowPassword}
+                                                                            onMouseDown={this.handleMouseDownPassword}>
+                                                                            {(this.state.showPassword) ? (<VisibilityOff />) : (<Visibility />)}
+                                                                        </IconButton>
+                                                                    </InputAdornment>
+                                                                ),
                                                             }}
-                                                        >
-                                                            <MenuItem value="Men">Hombre</MenuItem>
-                                                            <MenuItem value="Women">Mujer</MenuItem>
-                                                            <MenuItem value="Other">Otro</MenuItem>
-                                                        </Select>
-                                                    </FormControl>
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        < this.StyledTextField
+                                                            variant="outlined"
+                                                            margin="normal"
+                                                            fullWidth
+                                                            id="localidad"
+                                                            label="Localidad"
+                                                            name="localidad"
+                                                            autoComplete="localidad"
+                                                            onChange={this.handleChange}
+                                                            helperText={this.state.usernameError && this.state.username == "" ? "Este campo es obligatorio" : ""}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        < this.StyledTextField
+                                                            variant="outlined"
+                                                            margin="normal"
+                                                            fullWidth
+                                                            name="confirmPassword"
+                                                            label="Confirmar contraseña*"
+                                                            id="confirmPassword"
+                                                            autoComplete="confirm password"
+                                                            type={this.state.showConfirmPassword ? 'text' : 'password'}
+                                                            value={this.state.confirmPassword}
+                                                            onChange={this.handleChange}
+                                                            error={
+                                                                this.state.confirmPassword != this.state.password
+                                                            }
+                                                            helperText={
+                                                                this.state.confirmPassword != this.state.password ? "Las contraseñas deben coincidir" : ""
+                                                            }
+                                                            InputProps={{
+                                                                endAdornment: (
+                                                                    <InputAdornment position="end">
+                                                                        <IconButton
+                                                                            aria-label="toggle password visibility"
+                                                                            onClick={this.handleClickShowConfirmPassword}
+                                                                            onMouseDown={this.handleMouseDownConfirmPassword}>
+                                                                            {(this.state.showConfirmPassword) ? (<VisibilityOff />) : (<Visibility />)}
+                                                                        </IconButton>
+                                                                    </InputAdornment>
+                                                                ),
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        < this.StyledTextField
+                                                            variant="outlined"
+                                                            margin="normal"
+                                                            fullWidth
+                                                            id="direccion"
+                                                            label="Direccion"
+                                                            name="direccion"
+                                                            autoComplete="address"
+                                                            onChange={this.handleChange}
+                                                            helperText={this.state.usernameError && this.state.username == "" ? "Este campo es obligatorio" : ""}
+                                                        />
+                                                    </Grid>
                                                 </Grid>
-                                            </Grid>
-                                        </div>
-                                    </ThemeProvider>
-                                    <div>
-                                        <this.StyledButton 
-                                            fullWidth
-                                            focusRipple
-                                            variant="contained"
-                                            size="medium"
-                                            text="bold"
-                                        > Regístrate
+                                            </div>
+                                        </ThemeProvider>
+                                        <div>
+                                            <this.StyledButton
+                                                fullWidth
+                                                focusRipple
+                                                variant="contained"
+                                                size="medium"
+                                                text="bold"
+                                            > Regístrate
 						</this.StyledButton>
-                                        <Link to={{
-                                            pathname: '/Register',
-                                            state: {
-                                                user: {
-                                                    username: this.state.username,
-                                                    email: this.state.email,
-                                                    password: this.state.password,
-                                                    gender: this.state.gender,
-                                                    city: this.state.city,
+                                            <Link to={{
+                                                pathname: '/Register',
+                                                state: {
+                                                    user: {
+                                                        username: this.state.username,
+                                                        email: this.state.email,
+                                                        password: this.state.password,
+                                                        gender: this.state.gender,
+                                                        city: this.state.city,
+                                                    }
                                                 }
-                                            }
-                                        }}
-                                            ref={
-                                                Link => this.LinkElement = Link
-                                            }>
-                                        </Link>
-                                    </div>
+                                            }}
+                                                ref={
+                                                    Link => this.LinkElement = Link
+                                                }>
+                                            </Link>
+                                        </div>
 
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                        <Box mt={5}>
+                        <Box mt={4}>
                             < div className="login_link" >
                                 <p className="login_text">
                                     ¿Ya tienes una cuenta? <a href="/SignIn" > Inicia sesión </a>

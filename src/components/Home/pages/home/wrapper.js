@@ -6,6 +6,7 @@ import './wrapper.scss'
 
 
 import SignIn from '../../../../components/SignIn/SignIn'
+import SignUp from '../../../../components/SignUp/SignUp'
 
 function Wrapper() {
   return (
@@ -13,6 +14,7 @@ function Wrapper() {
       <Route render={({location}) => (
         <Switch location={location}>
           <Route exact path="/SignIn" component={SignIn}/>
+          <Route exact path="/SignUp" component={SignUp}/>
         </Switch>
       )}>
       </Route>

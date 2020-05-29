@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
@@ -9,6 +10,13 @@ import './wrapper.scss'
 class Home extends Component {
     constructor(props) {
         super(props)
+
+        this.routeChange = this.routeChange.bind(this);
+    }
+
+    routeChange = () => {
+        let path = `/SignIn`;
+        this.props.history.push(path);
     }
 
     render() {
@@ -16,50 +24,47 @@ class Home extends Component {
             <div className="home">
                 <div className="card">
                     <div className="home-container">
-                        <Container component="main">
-                            <Grid
-                                container
-                                spacing={1}
-                            >
-                                <Grid container item xs={12}>
-                                    <Grid item xs={11}>
-                                        <div className="home-content">
-                                            <h1> Bienvenido a Synctrash</h1>
-                                        </div>
-                                        <div className="home-content">
-                                            <h2>Recolectando y Reciclando el futuro</h2>
-                                        </div>
-                                    </Grid>
-                                    <Grid item xs={1}>
-                                        <div className="plant-container">
-                                            <img
-                                                className="plant"
-                                                src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/hojas.png' />
-                                        </div>
-                                    </Grid>
-                                </Grid>
-                                <Grid container item={12}>
-                                    <Grid item xs={4}>
-                                        <div className="home-card">
+                        <div className="title-container">
+                            <div className="title">
+                                <div className="home-content">
+                                    <h1> Bienvenido a Synctrash</h1>
+                                </div>
+                                <div className="home-content">
+                                    <h2>Recolectando y Reciclando el futuro</h2>
+                                </div>
+                            </div>
+                            <div className="plant-container">
+                                <img
+                                    className="plant"
+                                    src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/hojas.png' />
+                            </div>
+                        </div>
+                        <div className="content">
+                            <div className="cards-container">
+                                <div className="home-card">
+                                    <div className="card-content" onClick={this.routeChange}>
+                                        <h1>
+                                            Aprende a separar residuos solidos
+                                                </h1>
+                                    </div>
+                                </div>
+                                <div className="home-card">
+                                    <div className="card-content">
+                                        <h1>
+                                            Busca lugares de acopio de material reciclable
+                                                </h1>
+                                    </div>
+                                </div>
+                                <div className="home-card">
+                                    <div className="card-content">
+                                        <h1>
+                                            Contacta una organizacion recicladora en tu sector
+                                                </h1>
+                                    </div>
+                                </div>
+                            </div>
 
-                                        </div>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <div className="home-card">
-
-                                        </div>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <div className="home-card">
-
-                                        </div>
-                                    </Grid>
-                                </Grid>
-
-
-
-                            </Grid>
-                        </Container>
+                        </div>
                     </div>
                 </div>
 
@@ -74,4 +79,4 @@ class Home extends Component {
 
 }
 
-export default Home;
+export default withRouter(Home);

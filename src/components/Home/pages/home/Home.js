@@ -14,8 +14,8 @@ class Home extends Component {
         this.routeChange = this.routeChange.bind(this);
     }
 
-    routeChange = () => {
-        let path = `/SignIn`;
+    routeChange = (route) => {
+        let path = route;
         this.props.history.push(path);
     }
 
@@ -42,21 +42,27 @@ class Home extends Component {
                         <div className="content">
                             <div className="cards-container">
                                 <div className="home-card">
-                                    <div className="card-content" onClick={this.routeChange}>
+                                    <div className="card-content" onClick={() => {
+                                        this.routeChange("/SepararResiduos")
+                                    }}>
                                         <h1>
                                             Aprende a separar residuos solidos
                                                 </h1>
                                     </div>
                                 </div>
                                 <div className="home-card">
-                                    <div className="card-content">
+                                    <div className="card-content" onClick={() => {
+                                        this.routeChange("/Acopios")
+                                    }}>
                                         <h1>
                                             Busca lugares de acopio de material reciclable
                                                 </h1>
                                     </div>
                                 </div>
                                 <div className="home-card">
-                                    <div className="card-content">
+                                    <div className="card-content" onClick={() => {
+                                        this.routeChange("/Contacto")
+                                    }}>
                                         <h1>
                                             Contacta una organizacion recicladora en tu sector
                                                 </h1>

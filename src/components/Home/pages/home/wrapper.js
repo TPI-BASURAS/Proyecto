@@ -17,6 +17,9 @@ function Wrapper() {
           <Route exact path="/SignIn" component={SignIn}/>
           <Route exact path="/SignUp" component={SignUp}/>
           <Route exact path="/Home" component={Home}/>
+          <Route exact path="/SepararResiduos" component={SignIn}/>
+          <Route exact path="/Acopios" component={SignUp}/>
+          <Route exact path="/Contacto" component={SignIn}/>
         </Switch>
       )}>
       </Route>

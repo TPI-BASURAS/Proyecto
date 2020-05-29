@@ -117,34 +117,34 @@ class SignUpCard extends Component {
         })(Button);
     }
 
-    handleChange(event) {
+    handleChange =  (event) => {
         var prop = String(event.target.id);
         this.setState({ [prop]: event.target.value });
     }
 
-    handleClickShowPassword() {
+    handleClickShowPassword = () => {
         this.setState({ showPassword: !this.state.showPassword });
     }
 
-    handleClick(udata) {
+    handleClick = (udata) => {
         this.setState({
             userData: udata
         });
         this.LinkElement.click();
     }
 
-    handleToAssistant(udata) {
+    handleToAssistant = (udata) => {
         this.setState({
             userData: udata
         });
         this.LinkToAssistantElement.click();
     }
 
-    handleDialogOpen() {
+    handleDialogOpen = () => {
         this.setState({ dialogOpen: true });
     }
 
-    handleDialogClose() {
+    handleDialogClose = () => {
         this.setState({ dialogOpen: false });
     }
 

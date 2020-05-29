@@ -1,3 +1,114 @@
-.product-container{
+.product-container {
     background-color: green;
+}
+
+.home {
+    width: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.home-container {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    background-color: #4fb0bb;
+    flex-wrap: wrap;
+}
+
+.home .card {
+    background-color: white;
+    height: 80% !important;
+    width: 75% !important;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5vw;
+    box-shadow: var(--shadow);
+    position: absolute;
+    z-index: 5;
+}
+
+.home-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.title-container {
+    display: flex;
+    width: 100%;
+    height: 30%;
+}
+
+.title .home-content h1 {
+    margin-top: 1em;
+    margin-bottom: 0;
+    font-size: 2.5em;
+    color: #7ea00e;
+    font-weight: normal;
+}
+
+.title .home-content h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2.5em;
+    color: #7ea00e;
+    font-weight: normal;
+}
+
+.title-container .plant-container {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+}
+.home-card {
+    width: 30%;
+    background-color: white;
+    padding: 1em;
+    margin-top: 11vh;
+    border: 3px solid #7ea00e;
+    color: #7ea00e;
+    margin-right: 1.5vw;
+    margin-left: 1.5vw;
+    margin-bottom: 5vh;
+}
+
+.home-card .card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.home-card:hover {
+    transform: scale(1.05);
+}
+.card-content:hover {
+    cursor: pointer;
+}
+
+.card-content h1 {
+    font-weight: lighter;
+    font-size: 3em;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    height: 70%;
+    align-items: flex-end;
+}
+
+.content .cards-container {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    display: flex;
+    width: 100%;
+    height: 100%;
 }

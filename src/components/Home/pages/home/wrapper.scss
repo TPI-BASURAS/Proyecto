@@ -1,114 +1,120 @@
-.product-container {
-    background-color: green;
-}
+@import 'src/sass/mixins';
+@import 'src/sass/variables';
 
+//Así se usa SASS mi rey :v
 .home {
-    width: auto;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    @include flexbox();
+    @include flex-direction(column);
+    @include align-content(center);
+    @include align-items(center);
+    @include justify-content(center);
+    .card{
+        position: absolute;
+        width: 80vw;
+        box-shadow: var(--shadow);
+        .home-container {
+            width: 100%;
+            height: 100%;
+            background-color: $dark-background;
+            @include flexbox();
+            @include flex-direction(column);
+            @include align-content(center);
+            position: relative;
+            .title-container {
+                display: block;
+            }
+            .home-content{
+                color: $onbackground-text-color;
+                font-weight: bold;
+                .part1{
+                    font-size: 32px;
+                    margin: 25px 0 0 0;
+                }
+                .part2{
+                    margin: 5px 0 0 0;
+                    font-size: 28px;
+                }
+            }
+            .plant-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+        .whoami{
+            margin-top: 20px;
+            @include flexbox();
+            @include flex-direction(row);
+            @include align-content(center);
+            @include justify-content(center);
+            &-logo{
+                width: 10%;
+            }
+            &-links{
+                @include flexbox();
+                @include flex-direction(column);
+                @include justify-content(center);
+                margin-left: 20px;
+                &-link1{
+                    color: $link-color;
+                    text-decoration: none;
+                    margin-bottom: 10px;
+                }
+                &-link2{
+                    color: $link-color;
+                    text-decoration: none;
+                }
+            }
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            height: 90%;
+            .home-card {
+                width: 30%;
+                background-color: white;
+                padding: 1em;
+                border: 3px solid #7ea00e;
+                color: $onbackground-text-color;
+                margin: 11vh 1.5vw 5vh;
+                text-decoration: none;
+                position: relative;
+                text-align: center;
+                @include flexbox();
+                @include flex-direction(column);
+                @include justify-content(center);
+                @include transition(0.5s);
+                &:hover{
+                    background-color: darken(#FFFFFF, 10%);
+                    transform: scale(1.02);
+                    cursor: pointer;
+                }
+                .card-icon{
+                    transform: scale(0.7);
+                    background-color: white;
+                    border: 3px solid #7ea00e;
+                    padding: 10px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: -20%;
+                    left: -15%;
+                    &-image{
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+    .image_background_si{
+        //Qué gonorrea tener que hacer esto Johan
+        width: 100vw;
+        height: 100vh;
+    }
 }
 
-.home-container {
-    width: 100% !important;
-    height: 100% !important;
-    display: flex;
-    background-color: #4fb0bb;
-    flex-wrap: wrap;
-}
 
-.home .card {
-    background-color: white;
-    height: 80% !important;
-    width: 75% !important;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5vw;
-    box-shadow: var(--shadow);
-    position: absolute;
-    z-index: 5;
-}
 
-.home-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
 
-.title-container {
-    display: flex;
-    width: 100%;
-    height: 30%;
-}
 
-.title .home-content h1 {
-    margin-top: 1em;
-    margin-bottom: 0;
-    font-size: 2.5em;
-    color: #7ea00e;
-    font-weight: normal;
-}
-
-.title .home-content h2 {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 2.5em;
-    color: #7ea00e;
-    font-weight: normal;
-}
-
-.title-container .plant-container {
-    display: flex;
-    justify-content: flex-end;
-    width: auto;
-}
-.home-card {
-    width: 30%;
-    background-color: white;
-    padding: 1em;
-    margin-top: 11vh;
-    border: 3px solid #7ea00e;
-    color: #7ea00e;
-    margin-right: 1.5vw;
-    margin-left: 1.5vw;
-    margin-bottom: 5vh;
-}
-
-.home-card .card-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-.home-card:hover {
-    transform: scale(1.05);
-}
-.card-content:hover {
-    cursor: pointer;
-}
-
-.card-content h1 {
-    font-weight: lighter;
-    font-size: 3em;
-}
-.content {
-    display: flex;
-    justify-content: center;
-    height: 70%;
-    align-items: flex-end;
-}
-
-.content .cards-container {
-    padding-left: 2vw;
-    padding-right: 2vw;
-    display: flex;
-    width: 100%;
-    height: 100%;
-}

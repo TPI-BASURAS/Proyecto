@@ -1,79 +1,73 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-
+import {NavLink, withRouter} from 'react-router-dom';
+import syncLogo from '../../../../assets/home/sync trash.svg'
+import lapiz from '../../../../assets/home/lapiz.svg'
+import colaboracion from '../../../../assets/home/colaboracion.svg'
+import ubicacion from '../../../../assets/home/ubicacion.svg'
 
 import './wrapper.scss'
 
 
 class Home extends Component {
-    constructor(props) {
-        super(props)
-
-        this.routeChange = this.routeChange.bind(this);
-    }
-
-    routeChange = (route) => {
-        let path = route;
-        this.props.history.push(path);
-    }
 
     render() {
         return (
             <div className="home">
                 <div className="card">
                     <div className="home-container">
-                        <div className="title-container">
-                            <div className="title">
-                                <div className="home-content">
-                                    <h1> Bienvenido a Synctrash</h1>
-                                </div>
-                                <div className="home-content">
-                                    <h2>Recolectando y Reciclando el futuro</h2>
-                                </div>
+                        <div className="title">
+                            <div className="home-content">
+                                <spam className="part1"> Bienvenido a Synctrash</spam>
                             </div>
-                            <div className="plant-container">
-                                <img
-                                    className="plant"
-                                    src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/hojas.png' />
+                            <div className="home-content">
+                                <spam className="part2">Recolectando y Reciclando el futuro</spam>
                             </div>
                         </div>
-                        <div className="content">
-                            <div className="cards-container">
-                                <div className="home-card">
-                                    <div className="card-content" onClick={() => {
-                                        this.routeChange("/SepararResiduos")
-                                    }}>
-                                        <h1>
-                                            Aprende a separar residuos solidos
-                                                </h1>
-                                    </div>
-                                </div>
-                                <div className="home-card">
-                                    <div className="card-content" onClick={() => {
-                                        this.routeChange("/Acopios")
-                                    }}>
-                                        <h1>
-                                            Busca lugares de acopio de material reciclable
-                                                </h1>
-                                    </div>
-                                </div>
-                                <div className="home-card">
-                                    <div className="card-content" onClick={() => {
-                                        this.routeChange("/Contacto")
-                                    }}>
-                                        <h1>
-                                            Contacta una organizacion recicladora en tu sector
-                                                </h1>
-                                    </div>
-                                </div>
+                        <div className="plant-container">
+                            <img
+                                className="plant"
+                                src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/hojas.png' />
+                        </div>
+
+                        <div className="whoami">
+                            <img className="whoami-logo" alt="logo" src={syncLogo}/>
+                            <div className="whoami-links">
+                                <a className="whoami-links-link1" href={"#"}>¿Qué es SyncTrash?</a>
+                                <a className="whoami-links-link2" href={"#"}>¿Quiénes somos?</a>
                             </div>
+                        </div>
+
+                        <div className="content">
+
+                            <NavLink className="home-card" to="/Aprender">
+
+                                <h1>Aprende a separar residuos solidos</h1>
+                                <div className="card-icon">
+                                    <img alt="lapiz" className="card-icon-image" src={lapiz}/>
+                                </div>
+
+                            </NavLink>
+                            <NavLink className="home-card" to="/Acopios">
+
+                                <h1>Busca lugares de acopio de material reciclable</h1>
+                                <div className="card-icon">
+                                    <img alt="ubicacion" className="card-icon-image" src={ubicacion}/>
+                                </div>
+
+                            </NavLink>
+
+                            <NavLink className="home-card"  to="/Contacto">
+
+                                <h1>Contacta una organizacion recicladora en tu sector</h1>
+                                <div className="card-icon">
+                                    <img alt="colaboracion" className="card-icon-image" src={colaboracion}/>
+                                </div>
+
+                            </NavLink>
 
                         </div>
                     </div>
                 </div>
-
                 <img
                     className="image_background_si"
                     src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/fondo.png' />

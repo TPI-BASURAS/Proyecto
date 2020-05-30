@@ -15,7 +15,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -254,8 +254,7 @@ class SignInCard extends Component {
                                         </ThemeProvider>
                                         <div>
                                             < this.StyledButton onClick={() => {
-
-
+                                                this.props.history.push("/Home")
                                             }}
                                                 /* href="/PrefAssistant" */
                                                 fullWidth
@@ -305,4 +304,4 @@ class SignInCard extends Component {
     }
 }
 
-export default SignInCard;
+export default withRouter(SignInCard);

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {withRouter} from "react-router-dom";
 import './Aprender.scss'
 import syncLogo from '../../assets/home/sync trash.svg'
+import reciclableONo from '../../assets/aprender/reciclable-noreciclable.svg'
+import recycleTable from '../../assets/aprender/tabla-reciclaje.svg'
 
 class Aprender extends Component {
     render() {
@@ -17,6 +19,13 @@ class Aprender extends Component {
 
                             <span className="learn-subtitle">¿Por qué es importante separar resíduos?</span>
                             <span className="learn-text">Cerca del 40% de material reciclable es enviado a los rellenos sanitario de Bogotá, todo este material puede ser reciclado si se entrega en condiciones óptimas para la transformación, por lo cual debemos tener conciencia de como organizar nuestros desechos y como adecuarlos hasta que llegué el momento de su recepción.</span>
+
+                            <img className="learn-image" alt="Tabla mela" src={reciclableONo}/>
+
+                            <span className="learn-subtitle">¿Cómo disponer el material reciclable correctamente?</span>
+
+                            <img className="learn-image-2" alt="Tabla mela 2" src={recycleTable}/>
+
                         </div>
 
                         <div className="sidebar">

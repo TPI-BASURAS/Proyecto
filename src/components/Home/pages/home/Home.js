@@ -33,7 +33,7 @@ class Home extends Component {
                             <img className="whoami-logo" alt="logo" src={syncLogo}/>
                             <div className="whoami-links">
                                 <a className="whoami-links-link1" href={"/SyncTrash"}>¿Qué es SyncTrash?</a>
-                                <a className="whoami-links-link2" href={"#"}>¿Quiénes somos?</a>
+                                <a className="whoami-links-link2" href={"/Us"}>¿Quiénes somos?</a>
                             </div>
                         </div>
 

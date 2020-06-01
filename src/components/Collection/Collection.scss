@@ -11,8 +11,9 @@
     @include justify-content(center);
     .card {
         position: absolute;
-        width: 80vw;
-        height: 70vh;
+        width: 95vw;
+        height: 95vh;
+        overflow: auto;
         box-shadow: var(--shadow);
         .collection-container {
             width: 100%;
@@ -48,121 +49,35 @@
                     width: 100%;
                     @include flexbox();
                     @include justify-content(space-between);
-
                     .whoami-logo {
                         padding-left: 2vw;
                         padding-top: 3vh;
                     }
                 }
             }
-
-            .table-container {
-                height: 70%;
-                padding-left: 1vw;
-                padding-right: 1vw;
-                .table-headers {
-                    background-color: $green-1;
-                    @include flexbox();
-                    .title {
-                        margin: 0;
-                        @include flexbox();
-                        @include justify-content(center);
-                    }
-                    #name {
-                        width: 20%;
-                    }
-                    #localidad {
-                        width: 15%;
-                    }
-                    #direccion {
-                        width: 20%;
-                    }
-                    #barrio {
-                        width: 10%;
-                    }
-                    #telefono {
-                        width: 10%;
-                    }
-                    #correo {
-                        width: 15%;
-                    }
-                    #contacto {
-                        width: 10%;
-                    }
-                }
-
-                .table-body {
-                    padding-left: 1vw;
-                    padding-right: 1vw;
-                    height: 90%;
-                    overflow: auto;
-
-                    .row-item {
-                        width: 100%;
-                        padding-top: 10px;
-                        padding-bottom: 10px;
-                        @include flexbox();
-
-                        .content {
-                            padding-right: 10px;
-                            padding-left: 10px;
-                            @include flexbox();
-                            @include justify-content(center);
-                            @include align-items(center);
-
-                            span{
-                                width: 100%;
-                                overflow: hidden;
-                            }
-                        }
-
-                        #name-item {
-                            width: 20%;
-                        }
-                        #localidad-item {
-                            width: 15%;
-                        }
-                        #direccion-item {
-                            width: 20%;
-                        }
-                        #barrio-item {
-                            width: 10%;
-                        }
-                        #telefono-item {
-                            width: 10%;
-                        }
-                        #correo-item {
-                            width: 15%;
-                        }
-                        #contacto-item {
-                            width: 10%;
+            .collection-table{
+                background-color: white;
+                margin-top: 150px;
+                @include flexbox();
+                @include flex-direction(column);
+                @include align-items(center);
+                @include justify-content(center);
+                table{
+                    border-spacing: 0;
+                    font-size: 11px;
+                    thead{
+                        th{
+                            background-color: #B4C6E7;
+                            border: 0.5px solid black;
                         }
                     }
-                }
-
-                .table-body:-webkit-scrollbar-track
-                {
-                    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-                    background-color: #F5F5F5;
-                    border-radius: 10px;
-                }
-                
-                .table-body::-webkit-scrollbar
-                {
-                    width: 10px;
-                    background-color: #F5F5F5;
-                }
-                
-                .table-body::-webkit-scrollbar-thumb
-                {
-                    border-radius: 10px;
-                    background-color: #FFF;
-                    background-image: -webkit-gradient(linear,
-                                                       40% 0%,
-                                                       75% 84%,
-                                                       from(#4D9C41),
-                                                       to(#19911D),
-                                                       color-stop(.6,#54DE5D))
+                    tbody{
+                        td{
+                            text-align: center;
+                            background-color: white;
+                            border: 0.5px solid black;
+                        }
+                    }
                 }
             }
         }

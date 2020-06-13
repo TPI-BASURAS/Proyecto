@@ -12,6 +12,7 @@ import Aprender from "../../../Learn/Aprender";
 import Collection from '../../../Collection/Collection'
 import SyncTrash from '../../../AboutUs/SyncTrash'
 import Us from '../../../AboutUs/Us'
+import Contact from '../../../contact/Contact'
 
 function Wrapper() {
   return (
@@ -26,7 +27,7 @@ function Wrapper() {
           <Route exact path="/Home" component={Home}/>
           <Route exact path="/Aprender" component={Aprender}/>
           <Route exact path="/Acopios" component={Collection}/>
-          <Route exact path="/Contacto" component={SignIn}/>
+          <Route exact path="/Contacto" component={Contact}/>
           <Route exact path="/SyncTrash" component={SyncTrash}/>
           <Route exact path="/Us" component={Us}/>
         </Switch>

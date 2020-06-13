@@ -16,7 +16,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -349,24 +349,12 @@ class SignUpCard extends Component {
                                                 variant="contained"
                                                 size="medium"
                                                 text="bold"
+                                                onClick={() => {
+                                                    this.props.history.push("/Home")
+                                                }}
                                             > Regístrate
 						</this.StyledButton>
-                                            <Link to={{
-                                                pathname: '/Register',
-                                                state: {
-                                                    user: {
-                                                        username: this.state.username,
-                                                        email: this.state.email,
-                                                        password: this.state.password,
-                                                        gender: this.state.gender,
-                                                        city: this.state.city,
-                                                    }
-                                                }
-                                            }}
-                                                ref={
-                                                    Link => this.LinkElement = Link
-                                                }>
-                                            </Link>
+
                                         </div>
 
                                     </form>
@@ -387,4 +375,4 @@ class SignUpCard extends Component {
     }
 }
 
-export default SignUpCard;
+export default withRouter(SignUpCard);

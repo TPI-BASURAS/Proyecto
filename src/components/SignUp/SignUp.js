@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import SignInCard from './SignInCard'
+import SignUpCard from './SignUpCard'
 
-import './SignIn.scss'
+
+import './SignUp.scss'
 
 class SignIn extends Component {
 
@@ -15,11 +16,11 @@ class SignIn extends Component {
   render() {
     console.log(this.state.user);
     return (
-      <div className="sign_in" >
+      <div className="sign_up" >
         <div className="card">
-          <SignInCard />
+          <SignUpCard />
         </div>
-        <div className="background_overlay_si">
+        <div className="background_overlay_no">
         </div>
         <img
           className="image_background_si"

@@ -15,7 +15,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -86,23 +86,22 @@ class SignInCard extends Component {
 
         this.StyledButton = withStyles({
             root: {
-                backgroundImage: this.gradient,
+                background: 'rgba(126, 160, 14, 1);',
                 fontFamily: 'Product Sans',
                 borderRadius: 3,
                 border: 0,
                 color: 'white',
                 height: 48,
                 padding: '0 30px',
-                boxShadow: '0 3px 5px 2px rgba(255, 255, 255, .3)',
                 margin: '1vh 0vw 1vh 0vh',
                 fontSize: '1.05rem',
                 transitionProperty: 'opacity',
                 transitionDuration: '0.1s',
                 '&:hover': {
-                    opacity: 0.9,
+                    background: 'rgba(126, 160, 14, .9)',
                 },
                 '&:active': {
-                    boxShadow: '0 3px 5px 2px rgba(255, 255, 255, .3)',
+                    boxShadow: '0 3px 5px 2px rgba(126, 160, 14, .3)',
                 },
             },
             label: {
@@ -111,34 +110,34 @@ class SignInCard extends Component {
         })(Button);
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         var prop = String(event.target.id);
         this.setState({ [prop]: event.target.value });
     }
 
-    handleClickShowPassword() {
+    handleClickShowPassword = () => {
         this.setState({ showPassword: !this.state.showPassword });
     }
 
-    handleClick(udata) {
+    handleClick = (udata) => {
         this.setState({
             userData: udata
         });
         this.LinkElement.click();
     }
 
-    handleToAssistant(udata) {
+    handleToAssistant = (udata) => {
         this.setState({
             userData: udata
         });
         this.LinkToAssistantElement.click();
     }
 
-    handleDialogOpen() {
+    handleDialogOpen = () => {
         this.setState({ dialogOpen: true });
     }
 
-    handleDialogClose() {
+    handleDialogClose = () => {
         this.setState({ dialogOpen: false });
     }
 
@@ -153,17 +152,26 @@ class SignInCard extends Component {
                     alignItems="center"
                 >
                     <Grid item xs={9}>
-                        <img
-                            className="image_background_si"
-                            src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/banner.png' />
+                        <div className="image-container">
+                            <img
+                                className="banner"
+                                src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/banner.png' />
+                        </div>
+
                     </Grid>
                     <Grid item xs={3}>
+                        <div className="plant-container">
+                            <img
+                                className="plant"
+                                src='https://raw.githubusercontent.com/TPI-BASURAS/misc/master/images/hojas.png' />
+                        </div>
                         <div className="paper-container">
                             <div className="paper">
+
                                 <div className="internal_paper_in">
 
                                     <div className="title">
-                                        <h1>Inicio de sesion </h1>
+                                        <h1>Iniciar de sesion </h1>
                                     </div>
                                     <div className="error_msg" style={this.state.error ? {} : { display: 'none' }}>
                                         <div className="help">
@@ -246,8 +254,7 @@ class SignInCard extends Component {
                                         </ThemeProvider>
                                         <div>
                                             < this.StyledButton onClick={() => {
-
-
+                                                this.props.history.push("/Home")
                                             }}
                                                 /* href="/PrefAssistant" */
                                                 fullWidth
@@ -297,4 +304,4 @@ class SignInCard extends Component {
     }
 }
 
-export default SignInCard;
+export default withRouter(SignInCard);

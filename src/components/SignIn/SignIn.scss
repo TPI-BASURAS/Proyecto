@@ -1,4 +1,4 @@
-.sign_in{
+.sign_in {
     width: auto;
     height: 100vh;
     display: flex;
@@ -8,44 +8,70 @@
     justify-content: center;
 }
 
-.sign_in .card{
+.sign_in .card {
     background-color: white;
     height: auto !important;
     display: flex;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 2vh;  
-    padding-top: 2vh;
     border-radius: 0.5vw;
     box-shadow: var(--shadow);
     position: absolute;
     z-index: 5;
     opacity: 90%;
-  }
+    max-width: 95vw;
+}
 
+.image-container {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    background: #69a1ac;
+    max-height: 95vh;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: auto;
+}
 
-  .sign_in .card .MuiContainer-root{
-      padding-left: 0;
-      padding-top: 0;
-      padding-right: 0;
-      padding-bottom: 0;
-  } 
+.image-container .banner {
+    max-width: 95vw;
+    max-height: 95vh;
+}
 
-  .paper-container{
+.plant-container {
+    display: flex;
+    justify-content: flex-end;
+    /* max-height: 100px; */
+    /* max-width: 100px; */
+    width: 100%;
+}
+
+.plant-container .plant {
+    max-width: 150px;
+    max-height: 150px;
+}
+.sign_in .card .MuiContainer-root {
+    padding-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+.paper-container {
     width: 100%;
     height: 100%;
     padding-right: 2em;
     padding-left: 2em;
-  }
-  .background_overlay_si{
+}
+.background_overlay_si {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) , #0b1a1b );
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), #0b1a1b);
     border-radius: 0.5vh;
     display: flex;
     flex-direction: column;
@@ -54,24 +80,23 @@
     z-index: 1;
 }
 
-.image_background_si{
+.image_background_si {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top right;
 }
 
-:root{
+:root {
     --primary: #40989d;
-    --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .padding_1 {
     height: 5vh;
-    
 }
 
-.sign_in{
+.sign_in {
     width: auto;
     height: 100vh;
     display: flex;
@@ -88,17 +113,15 @@
     align-content: center;
 }
 
-.internal_paper_in{
-    margin-top: 5vh;
-    margin-bottom: 1vh;
+.internal_paper_in {
+    /*margin-top: 5vh; */
+    /* margin-bottom: 1vh;*/
 }
 
-.form{
-    width: '100%';
+.form {
+    width: "100%";
     margin-top: -2vh;
 }
-
-
 
 .login_link {
     width: 100%;
@@ -111,7 +134,7 @@
     justify-content: center;
 }
 
-.login_link a{
+.login_link a {
     transition-property: text-decoration-color;
     transition-duration: 0.2s;
     color: var(--primary);
@@ -120,11 +143,11 @@
     font-weight: 400;
 }
 
-.login_link a:hover{
+.login_link a:hover {
     text-decoration-color: var(--primary);
 }
 
-.login_link p{
+.login_link p {
     color: rgba(0, 0, 0, 0.6);
 }
 
@@ -140,24 +163,23 @@
 
 .title h1 {
     color: rgba(0, 0, 0, 0.6);
-    font-size: 1.4rem !important;
+    font-size: 1.4rem;
 }
-
 
 .react-icons {
     vertical-align: middle;
-  }
+}
 
 .MuiTypography-body1 {
-    font-family: 'Product Sans' !important;
+    font-family: "Product Sans" !important;
     font-size: 1.2em !important;
 }
 
-.error_msg{
+.error_msg {
     width: 100%;
     height: auto;
     padding: 4px 12px 4px 12px;
-    background-color: #055B5C;
+    background-color: #055b5c;
     border-radius: 0.5vw;
     color: white;
     margin-bottom: 2.8vh;
@@ -167,39 +189,39 @@
     justify-content: center;
 }
 
-.error_msg span{
+.error_msg span {
     color: white;
     font-size: 1.05em;
     margin: 0% !important;
 }
 
-.error_msg .help{
+.error_msg .help {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 12px;
 }
 
-.error_msg .help_icon{
+.error_msg .help_icon {
     cursor: pointer;
 }
 
 .dialog_title {
-    font-family: 'Product Sans';
+    font-family: "Product Sans";
 }
 
-.dialog_content{
+.dialog_content {
     width: inherit;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    font-family: 'Product Sans';
+    font-family: "Product Sans";
     font-size: 1.1em;
 }
 
-.dialog_content a{
+.dialog_content a {
     color: var(--primary);
     text-decoration-line: underline;
     text-decoration-color: white;

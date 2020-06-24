@@ -1,0 +1,100 @@
+@import 'src/sass/mixins';
+@import 'src/sass/variables';
+
+.learn{
+  width: 100vw;
+  height: 100vh;
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-content(center);
+  @include align-items(center);
+  @include justify-content(center);
+  .card{
+    position: absolute;
+    width: 80vw;
+    box-shadow: var(--shadow);
+    .learn-container{
+      width: 100%;
+      height: 100%;
+      background-color: $dark-background;
+      @include flexbox();
+      @include flex-direction(row);
+      @include align-content(center);
+      .content{
+        width: 75%;
+        height: 95vh;
+        background-color: white;
+        position: relative;
+        padding: 30px;
+        overflow: auto;
+        @include flexbox();
+        @include flex-direction(column);
+        .learn-title{
+          color: $onbackground-text-color;
+          font-weight: bold;
+          font-size: 32px;
+          text-align: center;
+          display: block;
+          margin-bottom: 12rem;
+        }
+        .plant-image{
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+          position: absolute;
+          left: 0;
+          top: 18%;
+        }
+        .learn-subtitle{
+          color: $onbackground-text-color;
+          font-weight: bold;
+          font-size: 24px;
+          text-align: start;
+          display: block;
+          margin-bottom: 10px;
+        }
+        .learn-text{
+          display: block;
+        }
+        .learn-image{
+          width: 50%;
+          margin: 0 auto;
+          &-2{
+            margin: 0 auto;
+            width: 80%;
+          }
+        }
+      }
+
+
+      .sidebar{
+        width: 25%;
+        &-logo{
+          width: 30%;
+          display: block;
+          margin: 10px auto 20px auto;
+        }
+        &-button{
+          color: $soft-green;
+          display: block;
+          margin: 10px auto;
+          background-color: white;
+          border: 2px solid $soft-green;
+          padding: 5px 20px;
+          width: 75%;
+          border-radius: 55px;
+          font-weight: bold;
+          @include transition(0.5s);
+          &:hover{
+            background-color: darken(white, 10%);
+            width: 80%;
+          }
+        }
+      }
+
+    }
+  }
+  .image_background_si{
+    width: 100vw;
+    height: 100vh;
+  }
+}
